@@ -1,24 +1,22 @@
+"use strict";
+
+let myScores = [92, 98, 84, 76, 89, 99, 100];
+let yourScores = [82, 98, 94, 88, 92, 100, 100];
+
 function getAverage(scores) {
-    let sum = 0;
-    let numscores = scores.length;
-    for (let i = 0; i < numscores; i++) {
-      sum += scores[i].price;
-    }
-    return sum;
+  let averageScore = 0;
+  let totalOfAllScores = 0;
+  for (let index = 0; index < scores.length; index++) {
+    let score = scores[index];
+    totalOfAllScores = totalOfAllScores + score;
   }
-  
-  let myScores = [92, 98, 84, 76, 89, 99, 100];
-  let yourScores = [82, 98, 94, 88, 92, 100, 100]; 
 
-  
+  let numberOfScores = myScores.length;
+  averageScore = totalOfAllScores / numberOfScores;
+  return averageScore;
+}
 
-  
-  let scores = getAverage(myScores);
-  let total = 92+98+84+76+89+99+100;
-  total/6;
-  console.log("My score " + total.toFixed(2));
-
-  scores = getAverage(myScores);
-   total = 82+98+94+88+92+100+100;
-  total/6;
-  console.log("Your score " + total.toFixed(2));
+let averageScoreForMyScores = getAverage(myScores);
+console.log("My Scores:" + averageScoreForMyScores.toFixed(2));
+let averageScoreForYourScores = getAverage(yourScores);
+console.log("Your Scores" + averageScoreForYourScores.toFixed(2));
