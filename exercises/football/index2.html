@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football</title>
+</head>
+
+<body>
+    <main>
+
+    </main>
+
+    <script>
+        "use strict";
+
+        let main = document.querySelector("main");
+
+        let h1 = document.createElement("h1");
+        h1.innerText = "Football Example";
+        main.appendChild(h1);
+
+        let teamsList = document.createElement("select");
+        teamsList.id = "teams-list";
+        teamsList.name = "teams"
+        main.appendChild(teamsList);
+
+        let option1 = document.createElement("option");
+        option1.value = "DAL";
+        option1.textContent = "Dallas Cowboys";
+        teamsList.appendChild(option1);
+
+        let option2 = document.createElement("option");
+        option2.value = "PITT";
+        option2.textContent = "Pittsburgh Steelers";
+        option2.selected = true;
+        teamsList.appendChild(option2);
+
+        let button = document.createElement("button");
+        button.name = "displayTeam";
+        button.id = "display-button";
+        button.innerText = "Display Selected Team";
+        main.appendChild(button)
+    </script>
+</body>
+
+</html>
