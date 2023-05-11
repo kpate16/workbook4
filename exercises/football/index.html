@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football</title>
+</head>
+
+<body>
+    <select name="" id="statesList">
+        <option value="OH">Ohio</option>
+        <option value="PA">Pennsylvania</option>
+    </select>
+    <select name="teams" id="teams-list"></select>
+    <button id="displayButton" onclick="displaySelectedTeam();">Display Selected Team</button>
+    <p></p>
+    <script>
+        "use strict";
+
+        let teams = [
+            { code: "DAL", name: "Dallas Cowboys", plays: "Arlington, TX" },
+            { code: "DEN", name: "Denver Broncos", plays: "Denver, CO" },
+            { code: "HOU", name: "Houston Texans", plays: "Houston, TX" },
+            {
+                code: "KAN", name: "Kansas City Chiefs",
+                plays: "Kansas City, MO"
+            },
+        ];
+
+        const teamsList = document.querySelector("#teams-list");
+
+
+        function loadTeamsList() {
+            for (const team of teams) {
+                let option = document.createElement("option");
+                option.value = team.code;
+                option.textContent = team.name;
+                teamsList.appendChild(option);
+
+
+
+            }
+        }
+
+        loadTeamsList();
+
+        function displaySelectedTeam() {
+
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>
