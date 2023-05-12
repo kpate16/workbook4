@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Menu</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.classless.min.css" />
+</head>
+
+<body>
+    <header></header>
+    <main class="container">
+        <select id="food-categories" onchange="selectMenuresult()">
+            <option value="">Select Menu Category...</option>
+            <option value="drinks">Drinks</option>
+            <option value="entrees">Entrees</option>
+            <option value="desserts">Desserts</option>
+        </select>
+        <h2>Menu results</h2>
+        <select id="menu-results" size="6"></select>
+    </main>
+    <footer></footer>
+    <script>
+        "use strict";
+        let food = document.querySelector("#food-categories");
+        let foodtoDisplay = document.querySelector("#menu-results");
+
+
+        let menu = {
+            drinks: [
+                "Water", "Tea", "Sweet Tea",
+                "Coke", "Dr. Pepper", "Sprite"
+            ],
+            entrees: [
+                "Hamburger w/ Fries",
+                "Grilled Cheese w/ Tater Tots",
+                "Grilled Chicken w/ Veggies",
+                "Chicken Fried Steak w/ Mashed Potatoes",
+                "Fried Shrimp w/ Coleslaw",
+                "Veggie Plate"
+            ],
+            desserts: [
+                "Cheesecake", "Chocolate Cake", "Snickerdoodle Cookie"
+            ]
+        };
+
+        function selectMenuresult() {
+            if (food.value === "drinks") {
+                displayMenuresults(menu.drinks);
+
+            } else if (food.value === "entrees") {
+                displayMenuresults(menu.entrees);
+            }
+            else {
+                displayMenuresults(menu.desserts);
+            }
+        }
+        function displayMenuresults(resultArray) {
+            foodtoDisplay.innerHTML = "";
+            for (const result of resultArray) {
+                const menuOption = new Option(result);
+                foodtoDisplay.appendChild(menuOption);
+
+            }
+        }
+    </script>
+</body>
+
+</html>
