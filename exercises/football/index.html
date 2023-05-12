@@ -6,16 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Football</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.classless.min.css" />
 </head>
 
+
+
 <body>
-    <select name="" id="statesList">
-        <option value="OH">Ohio</option>
-        <option value="PA">Pennsylvania</option>
-    </select>
-    <select name="teams" id="teams-list"></select>
-    <button id="displayButton" onclick="displaySelectedTeam();">Display Selected Team</button>
-    <p></p>
+    <main>
+        <h1>Football Example</h1>
+        <select name="teams" id="teams-list">
+
+        </select>
+        <button id="displayButton" onclick="displaySelectedTeam();">Display Selected Team</button>
+        <p id="selected-team-paragraph"></p>
+    </main>
     <script>
         "use strict";
 
@@ -29,8 +33,8 @@
             },
         ];
 
-        const teamsList = document.querySelector("#teams-list");
-
+        const teamsList = document.querySelector("select#teams-list");
+        const selectedTeamParagraph = document.querySelector("p#selected-team-paragraph");
 
         function loadTeamsList() {
             for (const team of teams) {
@@ -38,22 +42,24 @@
                 option.value = team.code;
                 option.textContent = team.name;
                 teamsList.appendChild(option);
-
-
-
             }
         }
 
         loadTeamsList();
 
-        function displaySelectedTeam() {
-
+        function findTeamByCode(code) {
+            for (const team of teams) {
+                if (team.code === code) {
+                    return team;
+                }
+            }
         }
 
-
-
-
-
+        function displaySelectedTeam() {
+            const teamCode = teamsList.value;
+            const team = findTeamByCode(teamCode);
+            selectedTeamParagraph.innerText = `The ${team.name} play in ${team.plays}.`;
+        }
     </script>
 </body>
 
